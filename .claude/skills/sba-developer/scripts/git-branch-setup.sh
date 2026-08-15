@@ -180,4 +180,4 @@ ok "  Based on:     ${BASE_BRANCH} (origin synced)"
 ok "═══════════════════════════════════════════════════"
 echo ""
 info "You are now on '${FEATURE_BRANCH}'. Start implementing."
-echo ""
+echo ""/
