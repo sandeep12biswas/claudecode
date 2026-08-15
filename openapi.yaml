@@ -1,0 +1,72 @@
+openapi: 3.0.3
+info:
+  title: claudecode API
+  description: API specification for the claudecode Spring Boot service.
+  version: 1.0.0
+servers:
+  - url: http://localhost:8080
+paths:
+  /api/greeting:
+    get:
+      summary: Get a greeting via query parameter
+      operationId: getGreetingByQueryParam
+      tags:
+        - Greeting
+      parameters:
+        - name: name
+          in: query
+          required: false
+          description: Name to greet. Defaults to "World" when omitted.
+          schema:
+            type: string
+            default: World
+      responses:
+        "200":
+          description: Greeting message
+          content:
+            text/plain:
+              schema:
+                type: string
+                example: "Hello, World!"
+  /api/greeting/{name}:
+    get:
+      summary: Get a greeting via path variable
+      operationId: getGreetingByPathVariable
+      tags:
+        - Greeting
+      parameters:
+        - name: name
+          in: path
+          required: true
+          description: Name to greet. Must not be blank.
+          schema:
+            type: string
+            minLength: 1
+      responses:
+        "200":
+          description: Greeting message
+          content:
+            text/plain:
+              schema:
+                type: string
+                example: "Hello, Sandeep!"
+        "400":
+          description: name path variable was blank
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/Error"
+components:
+  schemas:
+    Error:
+      type: object
+      properties:
+        status:
+          type: integer
+          example: 400
+        error:
+          type: string
+          example: Bad Request
+        message:
+          type: string
+          example: name must not be blank
