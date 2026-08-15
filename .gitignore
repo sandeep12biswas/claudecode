@@ -22,3 +22,16 @@
 # virtual machine crash logs, see http://www.java.com/en/download/help/error_hotspot.xml
 hs_err_pid*
 replay_pid*
+/data/app.db
+
+# Maven build output
+target/
+/.idea/compiler.xml
+/.idea/encodings.xml
+/.idea/jarRepositories.xml
+/.idea/misc.xml
+/.idea/shelf/Uncommitted_changes_before_Checkout_at_04_08_26,_8_57 pm_[Changes]/shelved.patch
+/.idea/shelf/Uncommitted_changes_before_Checkout_at_04_08_26,_8_57 pm_[Changes]1/shelved.patch
+/.idea/shelf/Uncommitted_changes_before_Checkout_at_04_08_26__8_57pm__Changes_.xml
+/.idea/vcs.xml
+/.idea/workspace.xml
